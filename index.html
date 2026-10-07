@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Echosync Services · AI-native data products for consumer markets</title>
+<meta name="description" content="Echosync Services is an independent software publisher based in France. We build AI-native data products that make opaque consumer markets readable, starting with WheyRadar, the supplement price comparator.">
+<link rel="canonical" href="https://echosyncservices.com/">
+<meta property="og:title" content="Echosync Services">
+<meta property="og:description" content="AI-native data products that make opaque consumer markets readable. Maker of WheyRadar.">
+<meta property="og:url" content="https://echosyncservices.com/">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230b0f14'/%3E%3Ccircle cx='16' cy='16' r='4' fill='%2334d399'/%3E%3Ccircle cx='16' cy='16' r='9' fill='none' stroke='%2334d399' stroke-width='2' opacity='.55'/%3E%3Ccircle cx='16' cy='16' r='14' fill='none' stroke='%2334d399' stroke-width='2' opacity='.25'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Echosync Services",
+  "url": "https://echosyncservices.com/",
+  "foundingDate": "2023-09",
+  "founder": { "@type": "Person", "name": "James Hill", "image": "https://echosyncservices.com/james-hill.png", "sameAs": "https://www.linkedin.com/in/james-hill-4bb54018a/" },
+  "address": { "@type": "PostalAddress", "streetAddress": "18 bis rue de Bligny", "addressLocality": "Fontenay-lès-Briis", "postalCode": "91640", "addressCountry": "FR" },
+  "email": "contact@echosyncservices.com",
+  "sameAs": ["https://wheyradar.com/", "https://www.linkedin.com/in/james-hill-4bb54018a/"]
+}
+</script>
+<style>
+  :root{
+    --bg:#f7f8fb; --bg2:#eef1f7; --panel:#ffffff; --line:#e3e7ef; --line2:#d3d9e4;
+    --text:#0f172a; --muted:#475569; --dim:#64748b;
+    --accent:#4338ca; --accent2:#6366f1; --accent-ink:#ffffff;
+    --radius:16px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+  h1,h2,h3,h4{letter-spacing:-.02em;line-height:1.15}
+  h2{font-size:clamp(26px,3.4vw,36px);margin-bottom:12px}
+  .sub{color:var(--muted);font-size:17px;max-width:620px;margin-bottom:36px}
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;color:var(--accent);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+  .eyebrow::before{content:"";width:18px;height:2px;background:var(--accent);border-radius:2px}
+
+  /* header */
+  header{position:sticky;top:0;z-index:10;backdrop-filter:blur(12px);background:rgba(247,248,251,.85);border-bottom:1px solid var(--line)}
+  header .wrap{display:flex;justify-content:space-between;align-items:center;height:66px}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:17px;color:var(--text)}
+  .logo:hover{text-decoration:none}
+  .logo svg{width:26px;height:26px}
+  nav{display:flex;gap:26px}
+  nav a{color:var(--muted);font-size:14px;font-weight:500}
+  nav a:hover{color:var(--text);text-decoration:none}
+
+  /* hero */
+  .hero{position:relative;padding:110px 0 90px;overflow:hidden}
+  .hero::before{content:"";position:absolute;inset:0;background:
+    radial-gradient(700px 360px at 20% 0%, rgba(67,56,202,.14), transparent 60%),
+    radial-gradient(500px 300px at 90% 20%, rgba(67,56,202,.07), transparent 60%);pointer-events:none}
+  .hero .wrap{position:relative}
+  .hero h1{font-size:clamp(38px,6vw,64px);font-weight:800;margin:18px 0 20px;max-width:820px}
+  .hero h1 em{font-style:normal;color:var(--accent)}
+  .lead{color:var(--muted);font-size:19px;max-width:640px}
+  .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-weight:600;padding:13px 22px;border-radius:10px;font-size:15px;transition:transform .15s,opacity .15s}
+  .btn:hover{text-decoration:none;transform:translateY(-1px)}
+  .btn-primary{background:var(--accent);color:var(--accent-ink)}
+  .btn-ghost{border:1px solid var(--line2);color:var(--text)}
+  .btn-ghost:hover{border-color:var(--accent)}
+  .facts{display:flex;flex-wrap:wrap;gap:10px 28px;margin-top:52px;color:var(--dim);font-size:13px;font-weight:500}
+  .facts span::before{content:"•";color:var(--accent);margin-right:8px}
+
+  section{padding:88px 0;border-top:1px solid var(--line)}
+  section.alt{background:var(--bg2)}
+
+  /* mission cards */
+  .grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:28px}
+  .card .ic{width:40px;height:40px;border-radius:10px;background:rgba(67,56,202,.12);display:grid;place-items:center;margin-bottom:18px}
+  .card .ic svg{width:20px;height:20px;stroke:var(--accent);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+  .card h3{font-size:18px;margin-bottom:8px}
+  .card p{color:var(--muted);font-size:15px}
+
+  /* product */
+  .product{background:linear-gradient(180deg,var(--panel),var(--bg2));border:1px solid var(--line2);border-radius:22px;padding:40px;display:grid;grid-template-columns:1.1fr .9fr;gap:40px}
+  .product .badge{display:inline-flex;align-items:center;gap:7px;font-size:12px;font-weight:700;color:var(--accent);background:rgba(67,56,202,.1);border:1px solid rgba(67,56,202,.35);border-radius:99px;padding:4px 11px;margin-bottom:16px}
+  .product .badge i{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px rgba(67,56,202,.18)}
+  .product h3{font-size:34px;font-weight:800;margin-bottom:10px}
+  .product .tag{color:var(--muted);font-size:17px;margin-bottom:22px}
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:26px 0 30px}
+  .stat{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:16px 14px}
+  .stat b{display:block;font-size:28px;font-weight:800;letter-spacing:-.03em}
+  .stat small{color:var(--dim);font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:.06em}
+  .pillars{display:flex;flex-direction:column;gap:14px}
+  .pillar{border:1px solid var(--line);border-radius:12px;padding:18px 20px;background:var(--bg)}
+  .pillar h4{font-size:15px;margin-bottom:4px;display:flex;align-items:center;gap:10px}
+  .pillar h4 span{color:var(--accent);font-weight:800;font-size:12px}
+  .pillar p{color:var(--muted);font-size:14px}
+  .pro{margin-top:22px;border-top:1px dashed var(--line2);padding-top:22px}
+  .pro h4{font-size:15px;margin-bottom:4px}
+  .pro p{color:var(--muted);font-size:14px}
+  .chip{display:inline-block;font-size:11px;font-weight:700;color:var(--accent);border:1px solid rgba(67,56,202,.45);border-radius:99px;padding:1px 9px;margin-left:8px;vertical-align:middle;letter-spacing:.04em}
+
+  /* roadmap */
+  .road{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;position:relative}
+  .step{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:26px;position:relative}
+  .step .n{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;font-size:13px;font-weight:800;margin-bottom:16px;border:1px solid var(--line2);color:var(--muted)}
+  .step.now{border-color:rgba(67,56,202,.5)}
+  .step.now .n{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+  .step h3{font-size:18px;margin-bottom:6px}
+  .step .when{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);margin-bottom:10px}
+  .step.now .when{color:var(--accent)}
+  .step p{color:var(--muted);font-size:14px}
+  .step ul{list-style:none;margin-top:12px;display:flex;flex-wrap:wrap;gap:6px}
+  .step li{font-size:12px;font-weight:600;color:var(--muted);border:1px solid var(--line2);border-radius:99px;padding:3px 10px}
+  .verticals{margin-top:44px}
+  .verticals h3{font-size:20px;margin-bottom:6px}
+  .verticals p.sub{margin-bottom:22px}
+  .vgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+  .v{border:1px solid var(--line);border-radius:12px;padding:16px 18px;background:var(--bg)}
+  .v b{display:block;font-size:14px;margin-bottom:3px}
+  .v small{color:var(--dim);font-size:13px}
+
+  /* how we build */
+  .build{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+  .build p{color:var(--muted);font-size:16px;margin-bottom:16px}
+  .stack{display:flex;flex-direction:column;gap:10px}
+  .row{display:flex;gap:14px;align-items:flex-start;border:1px solid var(--line);border-radius:12px;padding:16px 18px;background:var(--panel)}
+  .row .k{min-width:120px;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);padding-top:3px}
+  .row .v2{font-size:14px;color:var(--muted)}
+  .row .v2 b{color:var(--text);font-weight:600}
+  .rules{margin-top:28px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+  .rule{font-size:14px;color:var(--muted);padding-left:14px;border-left:2px solid var(--accent)}
+  .rule b{display:block;color:var(--text);font-weight:600;margin-bottom:2px}
+
+  /* founder */
+  .founder{display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:start;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:32px}
+  .avatar{width:84px;height:84px;border-radius:50%;object-fit:cover;background:linear-gradient(135deg,var(--accent),#0ea5e9);display:grid;place-items:center;font-weight:800;font-size:28px;color:var(--accent-ink)}
+  .founder h3{font-size:22px;margin-bottom:2px}
+  .founder .role{color:var(--accent);font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:14px}
+  .founder p{color:var(--muted);font-size:15px;margin-bottom:10px}
+  .links{display:flex;gap:16px;margin-top:14px;font-size:14px;font-weight:600}
+
+  /* contact + legal */
+  .contact{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+  .contact p{color:var(--muted);font-size:16px}
+  .contact a.big{font-size:22px;font-weight:700;display:inline-block;margin:12px 0 4px}
+  .legal{font-size:13px;color:var(--dim);line-height:1.8}
+  .legal h4{font-size:13px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px}
+  .legal b{color:var(--muted);font-weight:500}
+
+  footer{border-top:1px solid var(--line);padding:30px 0;color:var(--dim);font-size:13px}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+
+  @media (max-width:820px){
+    nav{display:none}
+    .hero{padding:72px 0 60px}
+    .product,.build,.contact,.founder{grid-template-columns:1fr}
+    .road,.rules{grid-template-columns:1fr}
+    .product{padding:26px}
+    .stats{grid-template-columns:repeat(3,1fr);gap:8px}
+    .stat b{font-size:22px}
+    section{padding:64px 0}
+  }
+  .shot{display:block;margin-top:28px;border:1px solid var(--line2);border-radius:18px;overflow:hidden;background:var(--panel);box-shadow:0 18px 50px rgba(15,23,42,.10)}
+  .shot img{display:block;width:100%;height:auto}
+  .shot span{display:block;padding:12px 18px;font-size:14px;font-weight:600;color:var(--accent);border-top:1px solid var(--line)}
+  .shot:hover{text-decoration:none;box-shadow:0 22px 60px rgba(67,56,202,.18)}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Echosync Services">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="#0f172a"/><circle cx="16" cy="16" r="4" fill="#818cf8"/><circle cx="16" cy="16" r="9" fill="none" stroke="#818cf8" stroke-width="2" opacity=".55"/><circle cx="16" cy="16" r="14" fill="none" stroke="#818cf8" stroke-width="2" opacity=".25"/></svg>
+      Echosync Services
+    </a>
+    <nav>
+      <a href="#mission">Mission</a>
+      <a href="#wheyradar">WheyRadar</a>
+      <a href="#roadmap">Roadmap</a>
+      <a href="#build">How we build</a>
+      <a href="#founder">Founder</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <div class="hero">
+    <div class="wrap">
+      <span class="eyebrow">Independent software publisher · France · since 2023</span>
+      <h1>We build data products that make <em>opaque markets</em> readable.</h1>
+      <p class="lead">Echosync Services turns messy online retail data (prices, promotions, shipping, customer reviews) into one honest answer: what is this really worth, and where should I buy it? Our first product, WheyRadar, does it for sports supplements.</p>
+      <div class="cta">
+        <a class="btn btn-primary" href="https://wheyradar.com/" target="_blank" rel="noopener">Discover WheyRadar →</a>
+        <a class="btn btn-ghost" href="#roadmap">Where we are going</a>
+      </div>
+      <div class="facts">
+        <span>Founded September 2023</span>
+        <span>Based near Paris</span>
+        <span>Bootstrapped</span>
+        <span>AI-native, built with Claude</span>
+      </div>
+    </div>
+  </div>
+
+  <section id="mission">
+    <div class="wrap">
+      <span class="eyebrow">Mission</span>
+      <h2>Consumer markets lie by omission. We fill in the blanks.</h2>
+      <p class="sub">Prices shown per package instead of per useful unit, "promotions" computed on inflated reference prices, shipping that changes the whole equation, reviews nobody has time to read. Shoppers overpay, and brands fly blind. We fix both sides with the same data.</p>
+      <div class="grid3">
+        <div class="card">
+          <div class="ic"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 14l4-4 4 4 5-6"/></svg></div>
+          <h3>The real price</h3>
+          <p>We normalize every offer to the unit that actually matters (a gram of protein, a serving, a dose), net of promotions and shipping. One number, comparable across any brand, pack size or merchant.</p>
+        </div>
+        <div class="card">
+          <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l8 4v5c0 5-3.5 8.5-8 9-4.5-.5-8-4-8-9V7l8-4z"/><path d="M9 12l2 2 4-4"/></svg></div>
+          <h3>Independence as a rule</h3>
+          <p>Rankings are never influenced by affiliation or advertising, and we never invent a data point. Unknown means not displayed. That is the moat a brand-funded comparator cannot copy.</p>
+        </div>
+        <div class="card">
+          <div class="ic"><svg viewBox="0 0 24 24"><path d="M8 10h8M8 14h5"/><path d="M21 12a8 8 0 0 1-11.6 7.1L4 21l1.9-5.4A8 8 0 1 1 21 12z"/></svg></div>
+          <h3>Taste, from real buyers</h3>
+          <p>We collect customer reviews from every merchant, in every language, and turn what buyers say about taste into a simple rank within each category. Our own calculation: no star copied from a merchant, no review republished, and nothing shown below a minimum number of reviews.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="wheyradar" class="alt">
+    <div class="wrap">
+      <span class="eyebrow">Our product</span>
+      <h2>WheyRadar</h2>
+      <p class="sub">The independent sports nutrition comparator. Live in France, built to go global.</p>
+
+      <div class="product">
+        <div>
+          <span class="badge"><i></i> Live · wheyradar.com</span>
+          <h3>Supplements ranked by real price per gram, promotions deducted.</h3>
+          <p class="tag">Whey, creatine, EAA/BCAA, omega-3, collagen, protein bars, pre-workout. Every offer from every tracked merchant, recomputed daily. Nobody can buy a better position.</p>
+
+          <div class="stats">
+            <div class="stat"><b>1,500+</b><small>offers tracked</small></div>
+            <div class="stat"><b>26</b><small>merchants</small></div>
+            <div class="stat"><b>130+</b><small>brands</small></div>
+          </div>
+
+          <div class="pro">
+            <h4>WheyRadar Pro <span class="chip">B2B</span></h4>
+            <p>The same data, for the brands and retailers behind the products: competitive positioning, promotional activity, price history, and taste ranks built from customer reviews.</p>
+          </div>
+
+          <div class="cta" style="margin-top:26px">
+            <a class="btn btn-primary" href="https://wheyradar.com/" target="_blank" rel="noopener">Visit wheyradar.com →</a>
+          </div>
+        </div>
+
+        <div class="pillars">
+          <div class="pillar">
+            <h4><span>01</span> Price per gram of active ingredient</h4>
+            <p>€ per 100 g of protein, per gram of creatine, per dose of EPA+DHA. The only metric that is honest across pack sizes, and that works in any currency, in any country.</p>
+          </div>
+          <div class="pillar">
+            <h4><span>02</span> Stack builder</h4>
+            <p>Pick everything you need and WheyRadar finds the cheapest way to buy the whole basket, shipping included, across all merchants. Our "parts list".</p>
+          </div>
+          <div class="pillar">
+            <h4><span>03</span> Checked before it is shown</h4>
+            <p>Every morning, the top offers of each category are re-read live on the merchant's page before publication. A price that changed or cannot be confirmed is held back. Data we cannot verify is never displayed.</p>
+          </div>
+          <div class="pillar">
+            <h4><span>04</span> Taste rank</h4>
+            <p>Customer reviews from every merchant, in every language, turned into a taste rank within each category, so you know how a product tastes before you order.</p>
+          </div>
+        </div>
+      </div>
+      <a class="shot" href="https://wheyradar.com/" target="_blank" rel="noopener" aria-label="Open wheyradar.com">
+        <img src="wheyradar-home.jpg" alt="WheyRadar home page: supplements ranked by real price per gram" loading="lazy" width="1440" height="900">
+        <span>wheyradar.com, home page →</span>
+      </a>
+    </div>
+  </section>
+
+  <section id="roadmap">
+    <div class="wrap">
+      <span class="eyebrow">Roadmap</span>
+      <h2>Dominate one market, then open the next.</h2>
+      <p class="sub">The method is deliberate: be irreproachable on one market (coverage, quality, trust) before expanding. The metric we built, real cost per unit of what matters, is universal. It scales to any currency, any country and any category.</p>
+
+      <div class="road">
+        <div class="step now">
+          <div class="n">1</div>
+          <div class="when">Now</div>
+          <h3>France</h3>
+          <p>WheyRadar is live and growing: daily collection across 26 merchants, stack builder, live price checks before publication, affiliate partnerships with 11 merchants.</p>
+          <ul><li>Sports nutrition</li><li>Taste rank</li><li>WheyRadar Pro</li></ul>
+        </div>
+        <div class="step">
+          <div class="n">2</div>
+          <div class="when">Next</div>
+          <h3>Europe & the US</h3>
+          <p>Same brand, same engine, new merchants and currencies. Priority markets: the United States, the United Kingdom, Germany, Spain and Italy, plus French-speaking Belgium and Switzerland.</p>
+          <ul><li>Multi-currency</li><li>Multi-language</li><li>Local merchants</li></ul>
+        </div>
+        <div class="step">
+          <div class="n">3</div>
+          <div class="when">Then</div>
+          <h3>All supplements, then new categories</h3>
+          <p>From sports nutrition to everyday health: vitamins, magnesium, probiotics, collagen. Then the engine moves to other markets where the unit price is hidden.</p>
+          <ul><li>General health</li><li>New verticals</li><li>Global reference</li></ul>
+        </div>
+      </div>
+
+      <div class="verticals">
+        <h3>Categories we are exploring next</h3>
+        <p class="sub">Every one of these has the same disease: a price per package that hides the price per use, and promotions nobody can verify.</p>
+        <div class="vgrid">
+          <div class="v"><b>Pet food</b><small>Price per gram of protein, per kg of kibble</small></div>
+          <div class="v"><b>Baby care</b><small>Formula per 100 g, diapers per unit</small></div>
+          <div class="v"><b>Coffee & tea</b><small>Price per cup, capsules and beans</small></div>
+          <div class="v"><b>Skincare</b><small>Price per ml of active ingredient</small></div>
+          <div class="v"><b>Household consumables</b><small>Laundry per wash, razors per blade</small></div>
+          <div class="v"><b>Printer ink & toner</b><small>Price per page, original vs compatible</small></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="build" class="alt">
+    <div class="wrap">
+      <span class="eyebrow">How we build</span>
+      <h2>An AI-native company, from the first commit.</h2>
+      <div class="build">
+        <div>
+          <p>Echosync Services is a one-founder company that ships like a team. The whole WheyRadar stack, the website, the collectors for every merchant, the aggregation and quality gates, the deployment pipeline, was built with <b style="color:var(--text)">Claude Code</b>, working from a written vision, a roadmap and a status file the way a small engineering team would.</p>
+          <p>In production, the <b style="color:var(--text)">Claude API</b> drafts our weekly editorial pieces, and every figure and study is checked at the source by a human before anything is published. Next, it will read customer reviews at scale, topic by topic (taste, texture, mixability, value), for shoppers and for the brands behind the products.</p>
+          <p>Everything else is boring on purpose: static pages on the edge, one daily data cycle, a quality gate that blocks a deploy if the data looks degraded, and nothing invented, ever.</p>
+        </div>
+        <div class="stack">
+          <div class="row"><div class="k">Engineering</div><div class="v2"><b>Claude Code</b> for the entire codebase: site, scrapers, aggregator, tests, CI.</div></div>
+          <div class="row"><div class="k">AI in prod</div><div class="v2"><b>Claude API</b> drafts the weekly articles, human-checked before publication. Next: review analysis by topic and sentiment.</div></div>
+          <div class="row"><div class="k">Data</div><div class="v2">Daily collection across <b>26 merchants</b>, price history archived, top offers re-checked live every morning.</div></div>
+          <div class="row"><div class="k">Delivery</div><div class="v2">Static site served from the <b>Cloudflare</b> edge, deployed by <b>GitHub Actions</b> behind a quality gate.</div></div>
+        </div>
+      </div>
+      <div class="rules">
+        <div class="rule"><b>Never invent a data point</b>Unknown price, dose or shipping fee means quarantined, not guessed.</div>
+        <div class="rule"><b>Rankings are never for sale</b>Affiliation pays the bills. It never touches the order of results.</div>
+        <div class="rule"><b>Respectful by design</b>Polite scraping, GDPR, full transparency on how we make money.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="founder">
+    <div class="wrap">
+      <span class="eyebrow">Founder</span>
+      <h2>Built by someone who sells data for a living.</h2>
+      <div class="founder" style="margin-top:28px">
+        <img class="avatar" src="james-hill.png" alt="James Hill" width="84" height="84">
+        <div>
+          <h3>James Hill</h3>
+          <div class="role">Founder · Echosync Services</div>
+          <p>James started in electrical engineering and home automation, then moved to B2B sales in e-commerce analytics, where he sells customer-review intelligence to consumer brands every day. WheyRadar is what happens when a supplement buyer who understands both data and sales gets tired of being misled by a price per kilo.</p>
+          <p>Bilingual French and English, British-born, based near Paris. Currently completing a Master's in International Business Development alongside building Echosync.</p>
+          <div class="links">
+            <a href="https://www.linkedin.com/in/james-hill-4bb54018a/" target="_blank" rel="noopener">LinkedIn →</a>
+            <a href="mailto:contact@echosyncservices.com">Email →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="alt">
+    <div class="wrap contact">
+      <div>
+        <span class="eyebrow">Contact</span>
+        <h2>Talk to us</h2>
+        <p>Brands and retailers interested in WheyRadar Pro, partners for new markets, or anyone who wants to compare notes on consumer data.</p>
+        <a class="big" href="mailto:contact@echosyncservices.com">contact@echosyncservices.com</a>
+        <p style="font-size:14px">Fontenay-lès-Briis, Essonne, France</p>
+      </div>
+      <div class="legal" id="mentions-legales">
+        <h4>Mentions légales</h4>
+        <b>Éditeur :</b> James Hill, entrepreneur individuel, exerçant sous le nom commercial Echosync Services<br>
+        <b>SIRET :</b> 979 137 361 00015<br>
+        <b>Siège :</b> 18 bis rue de Bligny, 91640 Fontenay-lès-Briis, France<br>
+        <b>Directeur de la publication :</b> James Hill<br>
+        <b>Contact :</b> contact@echosyncservices.com<br>
+        <b>Hébergeur :</b> GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis<br>
+        <b>Données personnelles :</b> ce site ne dépose aucun cookie et ne collecte aucune donnée personnelle.
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Echosync Services</span>
+    <span><a href="https://wheyradar.com/" target="_blank" rel="noopener">WheyRadar</a> · <a href="#mentions-legales">Mentions légales</a></span>
+  </div>
+</footer>
+
+</body>
+</html>
